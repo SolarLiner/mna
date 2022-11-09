@@ -40,7 +40,7 @@ class Solver:
         m = Matrix(
             [
                 [
-                    sum(-z.acceptance(self.s) for z in self.circ.get_edge(a, b))
+                    sum(-z.acceptance(self.s) for z in self.circ.get_edge(a, b) if z.is_passive())
                     for b,_ in self.circ.nodes()
                 ]
                 for a,_ in self.circ.nodes()

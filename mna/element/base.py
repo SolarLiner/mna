@@ -1,7 +1,7 @@
 from abc import abstractmethod
 from dataclasses import dataclass
 
-from sympy import Expr
+from sympy import Expr, Integer
 
 
 @dataclass()
@@ -12,10 +12,10 @@ class Element:
     n1: int
     n2: int
 
-    @abstractmethod
     def acceptance(self, s: Expr) -> Expr:
         """Element acceptance, or inverse impedance. To be overriden by all supported elements."""
         raise NotImplementedError()
+        # return Integer(0)
 
     def vs_(self) -> Expr | None:
         """Optional voltage source emitted by the element."""
